@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     const {posts} = Data();
     return (
-      <div className="App">
+      <div className="grid">
         <Sidebar/>
         <Posts posts={posts}/>
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Post from './Post';
 
 const Posts = ({posts}) => (
-  <ul>
+  <ul className="posts">
   {
     posts.map((post, index) => <Post key={index} {...post}/>)
   }

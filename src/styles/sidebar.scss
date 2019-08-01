@@ -1,0 +1,7 @@
+.sidebar {
+  grid-area: sidebar;
+  
+  @media #{$tablet} {
+    display: none;
+  }
+}
