@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Sidebar = () => (
-  <div class="filters">
+  <div className="sidebar">
         <div class="filters__category">
           Chose Category
           <select class="chose">
