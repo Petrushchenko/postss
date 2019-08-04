@@ -14,12 +14,13 @@
 }
 
 .options {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  min-height: 30px;
 
   .option {
     white-space: nowrap;
-    margin-right: 5px;
 
     &-blue {
 
@@ -30,6 +31,7 @@
 
     &__key {
       color: $light-text-color;
+      display: inline-block;
 
       &:first-letter {
         text-transform: uppercase;
@@ -40,13 +42,38 @@
       color: $text-color;
       font-weight: 600;
       margin-left: 4px;
+
+      &-background {
+        background-color: $gray-color;
+        display: inline-block;
+        padding: 5px;
+        border-radius: $border-radius;
+      }
     }
 
     &__separator {
       display: inline-block;
-      width: 5px;
+      width: 1px;
       border-right: 1px solid $light-gray-color;
       height: 10px;
+      margin:0 5px;
     }
+
+    &__stars {
+      display: inline-flex;
+      margin-left: 5px;
+    }
+
+    &__star {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url(../assets/star.svg);
+        margin: 0 2px;
+
+        &-colored {
+          background-image: url(../assets/star-colored.svg);
+        }
+      }
   }
 }

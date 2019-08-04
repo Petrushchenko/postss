@@ -2,7 +2,7 @@ import React from 'react';
 import Option from './Option';
 
 const Options = (props) => {
-  const {options, ...rest} = props;
+  const {options, client, ...rest} = props;
   if (options) {
     const optionsAr = Object.entries(options);
     return (
@@ -14,11 +14,25 @@ const Options = (props) => {
       }
       </ul>
     )
-  } else {
-    // const optionsAr = Array.from(...rest)
-    console.log({...rest})
+  } 
+  if (client) {
     return (
-      <div>hello</div>)
+      <ul className="options">
+       <Option pr="client" value={client}/>
+    </ul>)
+  } 
+  else {
+    const entriesAr = Object.entries({...rest});
+    return (
+     <ul className="options">
+       {
+        entriesAr.map(item => {
+          const [pr, value] = [...item];
+          return <Option key={pr} pr={pr} value={value}/>
+        })
+       }
+     </ul>
+     )
   }
 }
 

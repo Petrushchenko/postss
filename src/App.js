@@ -4,7 +4,6 @@ import Posts from './components/Posts';
 import Data from './data.js';
 import './styles/main.scss';
 
-console.log(Data().posts)
 class App extends Component {
   render() {
     const {posts} = Data();
