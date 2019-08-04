@@ -20,6 +20,18 @@ const Data = () => ({
         {
           "id":2,
           "name": "рhp"
+        },
+        {
+          "id":3,
+          "name": "google-maps-api"
+        },
+        {
+          "id":4,
+          "name": "google-maps-api"
+        },
+        {
+          "id":5,
+          "name": "google-maps-api"
         }
       ],
       "client": {
