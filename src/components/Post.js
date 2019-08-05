@@ -9,7 +9,7 @@ const Post = ({name, description, options, client, ...rest}) => {
       <Options options={options}/>
       <p>
         <Truncate 
-          trimWhitespace="true" 
+          trimWhitespace={true} 
           lines={3} 
           ellipsis={<span>... <button type="button" className="btn">more</button></span>}>
           {description}
