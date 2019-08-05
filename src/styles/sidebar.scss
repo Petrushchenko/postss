@@ -1,7 +1,32 @@
 .sidebar {
   grid-area: sidebar;
+  background-color: $gray-color;
+  border-radius: $border-radius;
   
   @media #{$tablet} {
     display: none;
+  }
+
+  .form {
+    
+    &__control {
+      padding: 10px;
+    }
+
+    &__input {
+      width: 100%;
+    }
+
+    &__error{
+      position: absolute;
+      top: 100%;
+      left: 10px;
+      color: red;
+      font-size: 12px;
+    }
+
+    .checkbox__label {
+      font-size: 1.4rem;
+    }
   }
 }
