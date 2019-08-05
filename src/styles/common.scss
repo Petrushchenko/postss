@@ -35,3 +35,14 @@ ul {
   }
 }
 
+%arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-width: 5px;
+  border-style: solid;
+  box-sizing: border-box;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}

@@ -1,29 +1,28 @@
 import React from 'react';
-import isArray from 'lodash/isArray';
+import Dropdown from 'react-dropdown';
 
-
-const SelectField = ({ field, form: { errors }, label, placeholder, options }) => {
+const SelectField = ({ field, form: { errors }, label, ...rest }) => {
   const { value = '', ...fieldParams } = field;
   const id = `form-${field.name}`;
 
   return (
     <div className="form__control">
     {label &&
-        <label class="form-label" htmlFor={id}>
+        <label className="form__label" htmlFor={id}>
           {label}
         </label>
       }
-      <select
+      <Dropdown
         id={id}
-        className="form__input"
+        className="form__select"
+        menuClassName='select__menu'
+        arrowClosed={<span className="arrow-closed" />}
+        arrowOpen={<span className="arrow-open" />}
         value={value}
         {...fieldParams}
+        {...rest}
       >
-        <option value="" label={placeholder} disabled />
-        {isArray(options) && options.map(opt => (
-          <option key={opt.value} value={opt.value}>{opt.label}</option>
-        ))}
-      </select>
+      </Dropdown>
       
     </div>
   );

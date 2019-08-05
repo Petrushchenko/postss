@@ -1,8 +1,6 @@
 import React from 'react';
 import Form from './Form';
 
-const filters = ["category", "subcategory", "rating", "budget", "delivery", "location"]
-
 const Sidebar = () => (
   <div className="sidebar">
     <Form/>
