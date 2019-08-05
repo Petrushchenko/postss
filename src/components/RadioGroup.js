@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CheckboxGroup extends Component {
+class RadioGroup extends Component {
 
   handleChange = event => {
     const target = event.currentTarget;
@@ -16,23 +16,16 @@ class CheckboxGroup extends Component {
   };
 
   render() {
-    const { value, error, touched, label, className, children } = this.props;
+    const { label, children } = this.props;
 
     return (
       <div className="form__control">
           <legend className="form__label">{label}</legend>
-          {React.Children.map(children, child => {
-            return React.cloneElement(child, {
-              field: {
-                value: value.includes(child.props.id),
-                onChange: this.handleChange
-              }
-            });
-          })}
+          {children}
       </div>
     );
   }
 }
 
 
-export default CheckboxGroup;
+export default RadioGroup;

@@ -1,28 +1,26 @@
 import React from 'react';
-import cn from 'classnames';
 
-const InputField = ({ field, form: { errors }, type = 'text', label, placeholder}) => {
+const InputField = ({ field, form: { errors }, type = 'text', label, ...rest}) => {
   const { value = '', ...fieldParams } = field;
   const isError = !!errors[field.name]
   const id = `form-${field.name}`;
 
   return (
-    <div class="form__control">
+    <div className="form__control">
       {label &&
-        <label class="form__label" htmlFor={id}>
+        <label className="form__label" htmlFor={id}>
           {label}
         </label>}
-      <div class="form__input-wrap">
+      <div className="input-request">
         <input
           id={id}
-          class={cn('form__input', { error: isError})}
-          type={type}
+          className="form__input"
           value={value}
-          placeholder={placeholder}
           {...fieldParams}
+          {...rest}
         />
       </div>
-      {isError && <span class="form__error">{errors[field.name]}</span>}
+      {isError && <span className="form__error">{errors[field.name]}</span>}
     </div>
   );
 };

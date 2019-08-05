@@ -11,6 +11,8 @@
     
     &__control {
       padding: 10px;
+      position: relative;
+      margin-bottom: 10px;
     }
 
     &__input {
@@ -25,8 +27,91 @@
       font-size: 12px;
     }
 
-    .checkbox__label {
-      font-size: 1.4rem;
+    &__select {
+      background-color: white;
+      border: 1px solid $text-color;
+      border-radius: $border-radius;
+      padding: 5px;
+      position: relative;
+      box-sizing: border-box;
+     
+      .select__menu {
+        position: absolute;
+        background-color: white;
+        top: calc(100% - 2px);
+        left: -1px;
+        width: calc(100% + 2px);
+        padding: 5px;
+        box-sizing: border-box;
+        z-index:2;
+        border-width: 0 1px 1px 1px;
+        border-style: solid;
+        border-color:  transparent $text-color $text-color $text-color;
+      }
+
+      .arrow-closed {
+        @extend %arrow;
+        border-color: $text-color transparent transparent transparent;
+      }
+
+      .arrow-open {
+        @extend %arrow;
+        border-color: transparent transparent $text-color transparent;
+      }
+    }
+
+    &__label {
+      color: $title-color;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      display:block;
+    }
+    
+    .input {
+      display: none;
+
+      &__label {
+        font-size: 1.4rem;
+        margin-left: 10px;
+        font-weight: 600;
+      }
+
+      &__wrap {
+        margin: 5px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      &__tick {
+        width: 12px;
+        height: 12px;
+        box-sizing: border-box;
+        border:1px solid $text-color;
+        border-radius: $border-radius;
+        
+        &.checked {
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-image: url(../assets/checked.svg);
+        }
+
+        &-rounded {
+          border-radius: 50%;
+
+          &.checked {
+            background-image: url(../assets/circle.svg);
+            background-size: 60% 60%;
+          }
+        }
+
+        &-green.checked {
+          background-image: url(../assets/checked-green.svg);
+        }
+
+      }
+
     }
   }
 }

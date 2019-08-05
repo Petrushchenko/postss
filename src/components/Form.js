@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
-import { object, string, ref, array } from 'yup';
+import { object, string } from 'yup';
 import InnerForm from './InnerForm';
+import axios from 'axios';
 
 const formValidationSchema = object().shape({
-  links: array().ensure().max(5, "List must contain maximum 5 items").of(
-      string().min(8, "Field must be at least 8 characters").required("This field is required")
-    ),
-  message: string().max(200).required('"Message" is required field')
+  name: string().max(20).required()
 })
 
+
 class Form extends Component {
-  handleSumbit = (values, actions) => {
-    console.log('form data:', values);
+  state={user:null}
+
+  handleSumbit = async (values, actions) => {
+    try {
+      const userData = await axios.get(`https://cors-anywhere.herokuapp.com/https://www.pinterest.com/${values.name}/feed.rss/`);
+      this.setState({user: userData.data})
+      console.log(this.state.user)
+    } catch (error) {
+      console.log(error);
+    }
   }
   render() {
+    const {user} = this.state;
+
     return (
-      <div class="form">
+      <div className="form">
         <Formik
           initialValues={{
             radioGroup: "",
@@ -28,6 +37,11 @@ class Form extends Component {
           validateOnChange={true}
           validateOnBlur={false}
         />
+        {user &&
+          <ul>
+            
+          </ul> 
+        }
       </div>
     );
   }
