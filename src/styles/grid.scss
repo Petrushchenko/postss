@@ -10,7 +10,7 @@
   
   @media #{$tablet} {
     grid-template-areas: "posts";
-    grid-template-columns: 1fr;
-
+    grid-template-columns: 100%;
+    padding: 10px;
   }
 }

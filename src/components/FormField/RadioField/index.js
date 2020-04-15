@@ -16,7 +16,7 @@ const RadioField = ({ field, label, id, type = 'radio',...rest}) => {
         {...rest}
       />
         
-      <label htmlFor={id} className={cn('input__tick', {checked: id === value, 'input__tick-rounded': type==="radio"})}></label>
+      <label htmlFor={id} className={cn('input__tick', {checked: id === value, 'input__tick--rounded': type==="radio"})}></label>
       {label &&
         <label className="input__label" htmlFor={id}>
           {label}

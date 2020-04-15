@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 const Option = ({pr, value}) => {
   return (
-    <li className={cn("option", {"option-blue": pr === "proposals"})}>
+    <li className={cn("option", {"option--blue": pr === "proposals"})}>
       <div className="option__key">
         {pr === "proposals" ? value : pr}:
         {
@@ -20,7 +20,7 @@ const Option = ({pr, value}) => {
             ? <>
                 {value.map((item, i) => i<3 && <span 
                       key={item.id} 
-                      className={cn("option__value", {"option__value-background": pr ==="skills" })}>
+                      className={cn("option__value", {"option__value--background": pr ==="skills" })}>
                     {item.name}
                   </span>
                 )}
@@ -33,7 +33,7 @@ const Option = ({pr, value}) => {
                   {Array.from({length:5}).map((item, index) => {
                     return <li 
                     key={index} 
-                    className={cn("option__star", {"option__star-colored": value.rating > index+1 })}></li>})
+                    className={cn("option__star", {"option__star--colored": value.rating > index+1 })}></li>})
                   }
                 </ul>
               }

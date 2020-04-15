@@ -1,15 +1,22 @@
 .posts {
   grid-area: posts;
 
-  .post {
-    border: 1px solid $light-gray-color;
-    border-radius: $border-radius;
-    margin: 5px 10px;
-    padding: 20px;
+  &__item {
+    margin: 10px;
+  }
+}
 
-    &__title {
-      color: $blue-color;
-    }
+.post {
+  border: 1px solid $light-gray-color;
+  border-radius: $border-radius;
+  padding: 10px 20px 20px;
+
+  &__title {
+    color: $blue-color;
+  }
+
+  @media #{$tablet} {
+    padding: 10px;
   }
 }
 
@@ -20,14 +27,7 @@
   min-height: 30px;
 
   .option {
-    white-space: nowrap;
-
-    &-blue {
-
-      .option__key, .option__value {
-        color:$blue-color;
-      }
-    }
+    line-height: 1.5;
 
     &__key {
       color: $light-text-color;
@@ -42,8 +42,9 @@
       color: $text-color;
       font-weight: 600;
       margin-left: 4px;
+      padding: 5px;
 
-      &-background {
+      &--background {
         background-color: $gray-color;
         display: inline-block;
         padding: 5px;
@@ -71,8 +72,14 @@
         background-image: url(../assets/star.svg);
         margin: 0 2px;
 
-        &-colored {
+        &--colored {
           background-image: url(../assets/star-colored.svg);
+        }
+      }
+
+       &--blue {
+        .option__key, .option__value {
+          color:$blue-color;
         }
       }
   }

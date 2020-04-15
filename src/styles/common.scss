@@ -1,7 +1,5 @@
 html {
   font-size: 10px;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
   color: $text-color;
 }
 
@@ -44,5 +42,4 @@ ul {
   box-sizing: border-box;
   top: 50%;
   right: 10px;
-  transform: translateY(-50%);
 }

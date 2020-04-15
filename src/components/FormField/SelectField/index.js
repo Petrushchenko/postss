@@ -16,8 +16,8 @@ const SelectField = ({ field, form: { errors }, label, ...rest }) => {
         id={id}
         className="form__select"
         menuClassName='select__menu'
-        arrowClosed={<span className="arrow-closed" />}
-        arrowOpen={<span className="arrow-open" />}
+        arrowClosed={<span className="arrow--close" />}
+        arrowOpen={<span className="arrow--open" />}
         value={value}
         {...fieldParams}
         {...rest}

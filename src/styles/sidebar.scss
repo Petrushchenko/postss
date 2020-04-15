@@ -13,10 +13,40 @@
       padding: 10px;
       position: relative;
       margin-bottom: 10px;
+
+      & > button {
+        color: $title-color;
+        font-weight: 600;
+        padding: 5px 10px;
+        background-color: white;
+        border: 1px solid $text-color;
+        border-radius: 5px;
+        outline: none;
+
+        &:hover {
+          cursor: pointer;
+          border-color: $title-color; 
+          color: $blue-color;
+        }
+      }
     }
 
     &__input {
       width: 100%;
+      outline: none;
+      background-color: white;
+      border: 1px solid $text-color;
+      border-radius: $border-radius;
+      padding: 5px;
+      box-sizing: border-box;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        border-color: $title-color;
+      }
     }
 
     &__error{
@@ -34,6 +64,10 @@
       padding: 5px;
       position: relative;
       box-sizing: border-box;
+
+      &:hover {
+        cursor: pointer;
+      }
      
       .select__menu {
         position: absolute;
@@ -41,22 +75,36 @@
         top: calc(100% - 2px);
         left: -1px;
         width: calc(100% + 2px);
-        padding: 5px;
         box-sizing: border-box;
         z-index:2;
         border-width: 0 1px 1px 1px;
         border-style: solid;
         border-color:  transparent $text-color $text-color $text-color;
+
+        & > div {
+          padding: 5px;
+          
+          &:hover {
+            color: $title-color;
+            background-color: $gray-color;
+            transition: all 0.5s;
+          }
+        }
       }
 
-      .arrow-closed {
-        @extend %arrow;
-        border-color: $text-color transparent transparent transparent;
-      }
+      .arrow {
 
-      .arrow-open {
-        @extend %arrow;
-        border-color: transparent transparent $text-color transparent;
+        &--close {
+          @extend %arrow;
+          border-color: $text-color transparent transparent transparent;
+          transform: translateY(-25%);
+        }
+
+        &--open {
+          @extend %arrow;
+          border-color: transparent transparent $text-color transparent;
+          transform: translateY(-75%);
+        }
       }
     }
 
@@ -67,51 +115,60 @@
       margin-bottom: 5px;
       display:block;
     }
+  }
+}
+
+.input {
+  display: none;
+
+  &__label {
+    font-size: 1.4rem;
+    margin-left: 10px;
+    font-weight: 600;
     
-    .input {
-      display: none;
-
-      &__label {
-        font-size: 1.4rem;
-        margin-left: 10px;
-        font-weight: 600;
-      }
-
-      &__wrap {
-        margin: 5px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-      }
-
-      &__tick {
-        width: 12px;
-        height: 12px;
-        box-sizing: border-box;
-        border:1px solid $text-color;
-        border-radius: $border-radius;
-        
-        &.checked {
-          background-position: center center;
-          background-repeat: no-repeat;
-          background-image: url(../assets/checked.svg);
-        }
-
-        &-rounded {
-          border-radius: 50%;
-
-          &.checked {
-            background-image: url(../assets/circle.svg);
-            background-size: 60% 60%;
-          }
-        }
-
-        &-green.checked {
-          background-image: url(../assets/checked-green.svg);
-        }
-
-      }
-
+    &:hover {
+      cursor: pointer;
+      color: $title-color;
     }
+  }
+
+  &__wrap {
+    margin: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__tick {
+    width: 14px;
+    height: 14px;
+    box-sizing: border-box;
+    border:1px solid $text-color;
+    border-radius: $border-radius;
+
+    &:hover {
+      cursor: pointer;
+      border:2px solid $text-color;
+    }
+    
+    &.checked {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: url(../assets/checked.svg);
+    }
+
+    &--rounded {
+      border-radius: 50%;
+
+      &.checked {
+        background-image: url(../assets/circle.svg);
+        background-size: 60% 60%;
+      }
+    }
+
+    &--green.checked {
+      background-image: url(../assets/checked-green.svg);
+    }
+
   }
 }

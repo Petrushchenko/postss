@@ -16,7 +16,7 @@ const CheckboxField = ({ field, label, id, type = 'checkbox',...rest}) => {
         {...rest}
       />
         
-      <label htmlFor={id} className={cn('input__tick', {checked: value, 'input__tick-green': id === "freelancers"})}></label>
+      <label htmlFor={id} className={cn('input__tick', {checked: value, 'input__tick--green': id === "freelancers"})}></label>
       {label &&
         <label className="input__label" htmlFor={id}>
           {label}

@@ -136,7 +136,10 @@ const InnerForm = ({values, setFieldValue, setFieldTouched}) => (
       placeholder="Enter User Name"
       required
     />
-    <button>Submit</button>
+    <div className="form__control">
+      <button type="submit">Submit</button>
+    </div>
+    
   </Form>
 );
 

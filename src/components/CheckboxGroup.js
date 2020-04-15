@@ -16,7 +16,7 @@ class CheckboxGroup extends Component {
   };
 
   render() {
-    const { value, error, touched, label, className, children } = this.props;
+    const { value, label, children } = this.props;
 
     return (
       <div className="form__control">

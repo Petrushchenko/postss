@@ -4,7 +4,7 @@ import Options from './Options';
 
 const Post = ({name, description, options, client, ...rest}) => {
   return (
-    <li className="post">
+    <li className="posts__item post">
       <h3 className="post__title">{name}</h3>
       <Options options={options}/>
       <p>
