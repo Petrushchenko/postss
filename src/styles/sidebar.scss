@@ -57,19 +57,36 @@
       font-size: 12px;
     }
 
-    &__select {
-      background-color: white;
-      border: 1px solid $text-color;
-      border-radius: $border-radius;
-      padding: 5px;
-      position: relative;
-      box-sizing: border-box;
+    &__label {
+      color: $title-color;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      display:block;
+    }
+  }
+}
 
-      &:hover {
-        cursor: pointer;
-      }
-     
-      .select__menu {
+.select {
+  &__control {
+    background-color: white;
+    border: 1px solid $text-color!important;
+    border-radius: $border-radius;
+    position: relative;
+    box-sizing: border-box;
+    outline:none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      border-color: transparent!important;
+      outline: $blue-color solid 1px!important;
+    }
+  }
+
+  &__menu {
         position: absolute;
         background-color: white;
         top: calc(100% - 2px);
@@ -81,43 +98,8 @@
         border-style: solid;
         border-color:  transparent $text-color $text-color $text-color;
 
-        & > div {
-          padding: 5px;
-          
-          &:hover {
-            color: $title-color;
-            background-color: $gray-color;
-            transition: all 0.5s;
-          }
-        }
       }
-
-      .arrow {
-
-        &--close {
-          @extend %arrow;
-          border-color: $text-color transparent transparent transparent;
-          transform: translateY(-25%);
-        }
-
-        &--open {
-          @extend %arrow;
-          border-color: transparent transparent $text-color transparent;
-          transform: translateY(-75%);
-        }
-      }
-    }
-
-    &__label {
-      color: $title-color;
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 5px;
-      display:block;
-    }
-  }
 }
-
 .input {
   display: none;
 
@@ -172,3 +154,13 @@
 
   }
 }
+
+ // & > div {
+ //          padding: 5px;
+          
+ //          &:hover {
+ //            color: $title-color;
+ //            background-color: $gray-color;
+ //            transition: all 0.5s;
+ //          }
+ //        }

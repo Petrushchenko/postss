@@ -1,5 +1,54 @@
 import React from 'react';
-import Dropdown from 'react-dropdown';
+import Select from 'react-select';
+
+ 
+const selectStyles = {
+  control: styles => ({ 
+    ...styles, 
+    backgroundColor: 'white', 
+    border: '1px solid #60605a',
+
+    ':hover': {
+      ...styles[':hover'],
+      cursor: 'pointer',
+      borderColor: '#33312f' 
+    },
+
+    ':active': {
+      ...styles[':active'],
+      borderColor: 'cyan'
+    },
+
+
+  }),
+  option: (styles, { isDisabled, isFocused, isSelected }) => {
+    return {
+      ...styles,
+      backgroundColor: isDisabled
+        ? null
+        : isSelected
+        ? '#33312f'
+        : isFocused
+        ? '#f5f6f1'
+        : null,
+      cursor: !isDisabled && 'pointer',
+      color: isFocused && '#33312f',
+      fontWeight: !isDisabled && isFocused && 600,
+
+      ':active': {
+        ...styles[':active'],
+        backgroundColor: !isDisabled && (isSelected ? 'yellow' : '#56d9f5'),
+      },
+    };
+  },
+  menu: styles => ({ 
+    ...styles, 
+    border: '1px solid #60605a'
+  })
+  // input: styles => ({ ...styles, {} }),
+  // placeholder: styles => ({ ...styles, ...dot() }),
+  // singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
+}
 
 const SelectField = ({ field, form: { errors }, label, ...rest }) => {
   const { value = '', ...fieldParams } = field;
@@ -12,17 +61,15 @@ const SelectField = ({ field, form: { errors }, label, ...rest }) => {
           {label}
         </label>
       }
-      <Dropdown
+      <Select
         id={id}
         className="form__select"
-        menuClassName='select__menu'
-        arrowClosed={<span className="arrow--close" />}
-        arrowOpen={<span className="arrow--open" />}
         value={value}
+        styles={selectStyles}
         {...fieldParams}
         {...rest}
       >
-      </Dropdown>
+      </Select>
       
     </div>
   );
